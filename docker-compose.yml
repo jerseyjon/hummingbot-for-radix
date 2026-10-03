@@ -1,0 +1,17 @@
+# Run:  docker compose run --rm hummingbot     (interactive; do NOT use `up -d` for first run)
+services:
+  hummingbot:
+    image: hummingbot/hummingbot:latest   # pin a version tag once you have a working setup
+    container_name: hummingbot-xrd
+    stdin_open: true
+    tty: true
+    network_mode: host   # keeps your egress IP stable for exchange API IP whitelisting
+    volumes:
+      - ./conf:/home/hummingbot/conf
+      - ./conf/connectors:/home/hummingbot/conf/connectors
+      - ./conf/controllers:/home/hummingbot/conf/controllers
+      - ./conf/scripts:/home/hummingbot/conf/scripts
+      - ./logs:/home/hummingbot/logs
+      - ./data:/home/hummingbot/data
+    environment:
+      - CONFIG_PASSWORD=${CONFIG_PASSWORD:-}   # optional; otherwise you type it at startup

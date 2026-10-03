@@ -1,0 +1,20 @@
+# Reference template for the V2 `pmm_simple` controller. Field names can differ between
+# Hummingbot versions - generate the authoritative file with `create --controller-config`
+# inside the client and use this only as a guide to sensible XRD values.
+id: xrd_mexc_pmm
+controller_name: pmm_simple
+controller_type: market_making
+connector_name: mexc
+trading_pair: XRD-USDT
+total_amount_quote: 200          # START SMALL
+buy_spreads: [0.005, 0.01]       # 0.5%, 1.0% - XRD spreads are wide; fees+volatility eat tight quotes
+sell_spreads: [0.005, 0.01]
+buy_amounts_pct: [50, 50]
+sell_amounts_pct: [50, 50]
+executor_refresh_time: 60
+cooldown_time: 15
+leverage: 1
+position_mode: ONEWAY
+stop_loss: 0.03
+take_profit: 0.005
+time_limit: 2700

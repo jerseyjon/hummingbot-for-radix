@@ -1,0 +1,10 @@
+# Never commit credentials or runtime state
+conf/connectors/*
+!conf/connectors/.gitkeep
+conf/.password_verification
+conf/*.yml
+!conf/conf_client.yml.example
+.env
+data/
+logs/
+certs/
